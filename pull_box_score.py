@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 from bs4 import BeautifulSoup
-import requests, urllib, os
+import requests 
 
 #### FIRST THREE YEARS 2010/2011/2012 ARE DIFFERENT WAYS TO RETRIEVE THAN 13-17
 
