@@ -1,11 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 from bs4 import BeautifulSoup
 import requests, urllib, os
 
 #### FIRST THREE YEARS 2010/2011/2012 ARE DIFFERENT WAYS TO RETRIEVE THAN 13-17
-
-
 
 class Old_Stats:
 	'Retrieve the mens volleyball statistics data from years 2010, 2011, 2012 for MAMVIC NAIA Cardinal Stritch' 
@@ -47,7 +45,3 @@ class Old_Stats:
 			response = requests.get(self.get_box_score_links()[url_step])
 			with open('./data/' + filename, "wb") as code:
 				code.write(response.content)
-			
-old_stats = Old_Stats()
-
-old_stats.download_html_links()
