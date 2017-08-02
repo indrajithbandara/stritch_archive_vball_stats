@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from bs4 import BeautifulSoup
-import requests
+import requests, urllib, os
 
 #### FIRST THREE YEARS 2010/2011/2012 ARE DIFFERENT WAYS TO RETRIEVE THAN 13-17
 
@@ -40,7 +40,14 @@ class Old_Stats:
 			for link in soup.find_all('a'):
 				link_list.append('http://' + self.base_urls()[url_step].replace(self.sport_url, '') + '/' + link.get('href'))
 		return link_list
+
+	def download_html_links(self):
+		for url_step in range(0, len(self.get_box_score_links()) + 1):
+			filename = 'box_score' + str(url_step) + '.htm'
+			response = requests.get(self.get_box_score_links()[url_step])
+			with open('./data/' + filename, "wb") as code:
+				code.write(response.content)
 			
 old_stats = Old_Stats()
 
-print old_stats.get_box_score_links()
+old_stats.download_html_links()
