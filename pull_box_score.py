@@ -45,3 +45,4 @@ class Old_Stats:
 			response = requests.get(self.get_box_score_links()[url_step])
 			with open('./data/' + filename, "wb") as code:
 				code.write(response.content)
+
